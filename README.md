@@ -49,9 +49,6 @@ Tests cover:
 - Invalid input handling
 
 # API Endpoints
-Fibonacci
-- GET /fibonacci/{n}
-Factorial
-- GET /factorial/{n}
-Loan Repayment
-- GET /loan?principal={value}&annual_rate={value}&months={value}
+- Fibonacci: GET /fibonacci/{n}
+- Factorial: GET /factorial/{n}
+- Loan Repayment: GET /loan?principal={value}&annual_rate={value}&months={value}
