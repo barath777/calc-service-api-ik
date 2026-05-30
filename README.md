@@ -52,3 +52,13 @@ Tests cover:
 - Fibonacci: GET /fibonacci/{n}
 - Factorial: GET /factorial/{n}
 - Loan Repayment: GET /loan?principal={value}&annual_rate={value}&months={value}
+
+## Project Packaging
+
+This project includes a `setup.py` file to make the application installable as a Python package.
+
+It enables clean imports across modules (e.g., `app.core`) and ensures the project can be executed consistently across different environments using:
+
+```bash
+pip install -e .
+```
