@@ -21,12 +21,13 @@ uvicorn app.api.main:app --reload
 
 Build the Docker image:
 
+```bash
 docker build -t calculation-service .
-
+```
 Run the container:
-
+```bash
 docker run -p 8000:8000 calculation-service
-
+```
 ## Running Tests
 
 Automated tests are provided using pytest to validate normal, edge, and invalid input scenarios for all calculations.
