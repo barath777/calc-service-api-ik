@@ -34,22 +34,24 @@ Automated tests are provided using pytest to validate normal, edge, and invalid 
 
 To run the test suite from the project root directory:
 
+```bash
 pytest
+```
 
 Alternatively, you can run:
-
+```bash
 python -m pytest
-
+```
 Tests cover:
 
-Valid input scenarios
-Edge cases (0, 1, negative values where applicable)
-Invalid input handling
+- Valid input scenarios
+- Edge cases (0, 1, negative values where applicable)
+- Invalid input handling
 
 # API Endpoints
 Fibonacci
-GET /fibonacci/{n}
+- GET /fibonacci/{n}
 Factorial
-GET /factorial/{n}
+- GET /factorial/{n}
 Loan Repayment
-GET /loan?principal={value}&annual_rate={value}&months={value}
+- GET /loan?principal={value}&annual_rate={value}&months={value}
