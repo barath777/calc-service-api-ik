@@ -17,7 +17,17 @@ A small production-minded service providing:
 pip install -r requirements.txt
 uvicorn app.api.main:app --reload
 
-## Tests
+## Run with Docker
+
+Build the Docker image:
+
+docker build -t calculation-service .
+
+Run the container:
+
+docker run -p 8000:8000 calculation-service
+
+## Running Tests
 
 Automated tests are provided using pytest to validate normal, edge, and invalid input scenarios for all calculations.
 
@@ -29,4 +39,16 @@ Alternatively, you can run:
 
 python -m pytest
 
-All tests should pass successfully before running the application or submitting the project.
+Tests cover:
+
+Valid input scenarios
+Edge cases (0, 1, negative values where applicable)
+Invalid input handling
+
+# API Endpoints
+Fibonacci
+GET /fibonacci/{n}
+Factorial
+GET /factorial/{n}
+Loan Repayment
+GET /loan?principal={value}&annual_rate={value}&months={value}
