@@ -16,7 +16,7 @@ A small production-minded service providing:
 ```bash
 pip install -r requirements.txt
 uvicorn app.api.main:app --reload
-
+```
 ## Run with Docker
 
 Build the Docker image:
