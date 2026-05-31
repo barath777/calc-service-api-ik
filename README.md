@@ -62,3 +62,7 @@ It enables clean imports across modules (e.g., `app.core`) and ensures the proje
 ```bash
 pip install -e .
 ```
+
+## Continuos Integration
+
+GitHub Actions is used to automatically run the test suite on every push to the main branch, helping maintain code quality and prevent regressions.
