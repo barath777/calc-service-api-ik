@@ -1,5 +1,3 @@
-# app/core/factorial.py
-
 def factorial(n: int) -> int:
     if not isinstance(n, int):
         raise ValueError("n must be an integer")

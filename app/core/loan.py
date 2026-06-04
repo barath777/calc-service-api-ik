@@ -1,5 +1,3 @@
-# app/core/loan.py
-
 from decimal import Decimal, getcontext
 
 getcontext().prec = 28

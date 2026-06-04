@@ -1,5 +1,3 @@
-# tests/test_fibonacci.py
-
 from app.core.fibonacci import fibonacci
 import pytest
 

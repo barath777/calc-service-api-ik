@@ -1,5 +1,3 @@
-# app/api/main.py
-
 from fastapi import FastAPI
 from app.core.fibonacci import fibonacci
 from app.core.factorial import factorial

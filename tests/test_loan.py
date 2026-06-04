@@ -1,4 +1,3 @@
-# tests/test_loan.py
 import pytest
 from app.core.loan import monthly_repayment
 

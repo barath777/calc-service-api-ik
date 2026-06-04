@@ -1,5 +1,3 @@
-# tests/test_factorial.py
-
 from app.core.factorial import factorial
 import pytest
 

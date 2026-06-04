@@ -1,5 +1,3 @@
-# app/core/fibonacci.py
-
 def fibonacci(n: int) -> int:
     if not isinstance(n, int):
         raise ValueError("n must be an integer")
