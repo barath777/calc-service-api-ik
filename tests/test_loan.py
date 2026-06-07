@@ -15,3 +15,11 @@ def test_loan_invalid_months():
 def test_loan_invalid_principal():
     with pytest.raises(ValueError):
         monthly_repayment(-1000, 10, 12)
+
+def test_loan_rounding():
+    result = monthly_repayment(1000, 0, 3)
+    assert result == 333.33
+
+def test_negative_interest():
+    with pytest.raises(ValueError):
+        monthly_repayment(1000, -5, 12)
