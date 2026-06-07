@@ -23,3 +23,6 @@ def test_loan_rounding():
 def test_negative_interest():
     with pytest.raises(ValueError):
         monthly_repayment(1000, -5, 12)
+
+def test_standard_testcase():
+    assert monthly_repayment(100000, 10, 12)==8791.59
