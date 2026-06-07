@@ -8,7 +8,7 @@ def monthly_repayment(principal: float, annual_rate: float, months: int) -> floa
     if months <= 0:
         raise ValueError("months must be > 0")
     if annual_rate < 0:
-        raise ValueError("annual_rate must be >=0")
+        raise ValueError("annual_rate must be >= 0")
 
     P = Decimal(str(principal))
     n = Decimal(months)
