@@ -9,3 +9,7 @@ def test_factorial_basic():
 def test_factorial_invalid():
     with pytest.raises(ValueError):
         factorial(-5)
+
+def test_factorial_upper_limit():
+    with pytest.raises(ValueError):
+        factorial(10000)
