@@ -74,16 +74,49 @@ GET /factorial/5 → { "result": 120 }
 ---
 
 ### Loan Repayment
-GET /loan?principal={value}&annual_rate={value}&months={value}
+POST /loan
 
 - Calculates monthly repayment using standard amortization formula
-- `annual_rate` is in percentage (e.g., 10 = 10%)
-- `principal` must be > 0
-- `months` must be > 0
+- The loan parameters are provided as a JSON request body.
+## Request Body
+{
+  "principal": 100000,
+  "annual_rate": 10,
+  "months": 12
+}
+
+## Parameters
+- principal — Loan principal amount. Must be greater than zero.
+- annual_rate — Annual interest rate expressed as a percentage.
+- months — Loan duration in months. Must be greater than zero.
 
 Example:
-GET /loan?principal=100000&annual_rate=10&months=12  
-→ { "monthly_payment": 8791.59 }
+10 = 10% annual interest
+5.5 = 5.5% annual interest
+
+POST /loan
+{
+  "principal": 100000,
+  "annual_rate": 10,
+  "months": 12
+}
+
+Response:
+{
+  monthly_payment: 8791.59
+}
+
+Invalid loan values result in a 400 Bad Request response.
+
+For example:
+
+{
+  "principal": 10000,
+  "annual_rate": 10,
+  "months": 0
+}
+
+returns a 400 Bad Request response because the loan duration must be greater than zero.
 
 ## Project Packaging
 

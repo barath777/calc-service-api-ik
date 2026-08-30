@@ -41,9 +41,8 @@ def test_factorial_invalid_input():
 
 
 def test_loan_endpoint():
-    response = client.get(
-        "/loan?principal=100000&annual_rate=10&months=12"
-    )
+    payload = {"principal": 100000, "annual_rate": 10, "months": 12}
+    response = client.post("/loan", json = payload)
 
     assert response.status_code == 200
 
@@ -52,20 +51,17 @@ def test_loan_endpoint():
     assert "monthly_payment" in data
     assert data["monthly_payment"] > 0
 
-
 def test_loan_zero_interest():
-    response = client.get(
-        "/loan?principal=1200&annual_rate=0&months=12"
-    )
+    payload = {"principal": 1200, "annual_rate":0, "months": 12}
+    response = client.post("/loan", json=payload)
 
     assert response.status_code == 200
     assert response.json() == {"monthly_payment": 100.0}
 
 
 def test_loan_invalid_months():
-    response = client.get(
-        "/loan?principal=100000&annual_rate=10&months=0"
-    )
+    payload = {"principal": 10000, "annual_rate":10, "months": 0}
+    response = client.post("/loan", json=payload)
 
     assert response.status_code == 400
     assert response.json() == {
@@ -74,9 +70,8 @@ def test_loan_invalid_months():
 
 
 def test_loan_negative_interest():
-    response = client.get(
-        "/loan?principal=100000&annual_rate=-5&months=12"
-    )
+    payload = {"principal": 100000, "annual_rate": -5, "months": 12}
+    response = client.post("/loan", json=payload)
 
     assert response.status_code == 400
     assert response.json() == {

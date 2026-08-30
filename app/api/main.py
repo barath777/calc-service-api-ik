@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from app.core.fibonacci import fibonacci
 from app.core.factorial import factorial
 from app.core.loan import monthly_repayment
-from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel, Field
 
 app = FastAPI(title="Calculation Service")
 
@@ -31,12 +31,19 @@ def get_factorial(n: int):
             detail=str(e)
         )
 
-@app.get("/loan")
-def get_loan(principal: float, annual_rate: float, months: int):
+class LoanRequest(BaseModel):
+    # principal: float = Field(..., ge=0, description="Loan Principal(>=0)")
+    # annual_rate: float = Field(..., ge=0, description="Annual interest rate in percent (>= 0)")
+    # months: int = Field(..., gt=0, description="Number of months(> 0)")
+    principal: float 
+    annual_rate: float
+    months: int
+
+@app.post("/loan")
+def post_loan(req: LoanRequest):
     try:
-        return {
-            "monthly_payment": monthly_repayment(principal, annual_rate, months)
-        }
+        monthly = monthly_repayment(req.principal, req.annual_rate, req.months)
+        return {"monthly_payment": monthly}
     except ValueError as e:
         raise HTTPException(
             status_code=400,
